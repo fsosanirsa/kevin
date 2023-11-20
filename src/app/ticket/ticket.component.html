@@ -1,0 +1,65 @@
+<div class="container">
+    <button (click)="onClick()">Crear ticket</button>
+</div>
+<ng-template #modalCajon let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel160">Creacion ticket</h5>
+        <button type="button" class="close" (click)="cerrarModal()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" tabindex="0" ngbAutofocus>
+        <section id="ngx-datatable-Responsive">
+            <div>
+                <div class="row">
+                    <div class="col">
+                        <label class="d-flex align-items-center">Titulo
+                            <input id="titulo" type="text" class="form-control" [(ngModel)]="titulo">
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label class="d-flex align-items-center">Descripcion
+                            <input id="descripcion" type="text" class="form-control" [(ngModel)]="descripcion">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="d-flex align-items-center">Prioridad
+                            <select class="form-control" style="width: 250px" [(ngModel)]="priority">
+                                <option value=""></option>
+                                <option *ngFor="let item of prioridades" value={{item.id}}>{{item.nombre}}
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label class="d-flex align-items-center">Categoria
+                            <select class="form-control" style="width: 250px" [(ngModel)]="category">
+                                <option value=""></option>
+                                <option *ngFor="let item of categorias" value={{item.id}}>{{item.nombre}}
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="d-flex align-items-center">Estado
+                            <select class="form-control" style="width: 250px" [(ngModel)]="status">
+                                <option value=""></option>
+                                <option *ngFor="let item of estados" value={{item.id}}>{{item.nombre}}
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</ng-template>
