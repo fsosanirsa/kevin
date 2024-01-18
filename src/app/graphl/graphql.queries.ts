@@ -1,6 +1,4 @@
-import { gql } from 'apollo-angular'
-
-const GET_ALL = gql`
+const GET_ALL = `
     query get{
         tickets{
             id

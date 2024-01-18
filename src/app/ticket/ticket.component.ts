@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Apollo, gql } from 'apollo-angular';
 import { GET_ALL } from 'app/graphl/graphql.queries';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
@@ -67,28 +66,12 @@ export class TicketComponent implements OnInit {
   all: Observable<any[]>;
 
   constructor(
-    private apollo: Apollo,
     private modalService: NgbModal
   ) {
   }
 
   ngOnInit(): void {
-    console.log("entro ")
-    this.apollo
-      .watchQuery<any[]>({
-        query: GET_ALL,
-      })
-      .valueChanges.pipe(map((result) => result.data
-      )).subscribe(
-        (data: any[]) => {
-          // Manejar los datos recibidos
-          console.log("result ", data)
-        },
-        (error) => {
-          console.error('Error al obtener datos:', error);
-        }
-      );
-    console.log("entro ", this.all)
+    
   }
 
   onClick() {
